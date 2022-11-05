@@ -1,0 +1,7 @@
+{
+  "name": "coderDuckNetwork",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

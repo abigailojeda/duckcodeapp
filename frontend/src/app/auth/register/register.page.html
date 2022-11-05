@@ -1,0 +1,144 @@
+<!-- <ion-content color="primary">
+  <form #form="ngForm" (ngSubmit)="register(form)">
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div text-center>
+            <h3>Create your account!</h3>
+          </div>
+          <div padding>
+            <ion-item>
+              <ion-input name="name" type="text" placeholder="Name" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="email" type="email" placeholder="your@email.com" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="password" type="password" placeholder="Password" ngModel required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input name="confirm" type="password" placeholder="Password again" ngModel required></ion-input>
+            </ion-item>
+          </div>
+          <div padding>
+            <ion-button size="large" type="submit" [disabled]="form.invalid" expand="block">Register</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content> -->
+
+<ion-content>
+  <section class="logo-cont">
+    <ion-img
+      src="/assets/img/duck_code_logo_color.svg"
+      alt="DuckCode"
+    ></ion-img>
+  </section>
+
+  <div class="login-cont ion-padding">
+    <form
+      #form="ngForm"
+      (ngSubmit)="register(form)"
+    >
+      <ion-title>Introduce tus datos</ion-title>
+
+      <!-- <ion-item>
+      <ion-icon name="mail-outline" slot="start" ></ion-icon>
+      <ion-input  type="email" name="email" placeholder="Introduce tu nombre de usuario" ngModel required></ion-input>      
+    </ion-item> -->
+
+      <ion-item>
+        <ion-icon
+          name="mail-outline"
+          slot="start"
+        ></ion-icon>
+
+        <ion-input
+          type="email"
+          name="email"
+          placeholder="Introduce tu email"
+          ngModel
+          required="required"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon
+          name="lock-closed-outline"
+          slot="start"
+        ></ion-icon>
+
+        <ion-input
+          [type]="!showPass ? 'password' : 'text'"
+          name="password"
+          placeholder="Introduce tu contraseña"
+          ngModel
+          required="required"
+        ></ion-input>
+
+        <ion-icon
+          *ngIf="!showPass"
+          name="eye-outline"
+          slot="end"
+          (click)="tooglePass()"
+        ></ion-icon>
+
+        <ion-icon
+          *ngIf="showPass"
+          name="eye-off-outline"
+          slot="end"
+          (click)="tooglePass()"
+        ></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon
+          name="lock-closed-outline"
+          slot="start"
+        ></ion-icon>
+
+        <ion-input
+          [type]="!showPassControl ? 'password' : 'text'"
+          name="password-control"
+          placeholder="Verifica tu contraseña"
+          ngModel
+        ></ion-input>
+
+        <ion-icon
+          *ngIf="!showPassControl"
+          name="eye-outline"
+          slot="end"
+          (click)="tooglePassControl()"
+        ></ion-icon>
+
+        <ion-icon
+          *ngIf="showPassControl"
+          name="eye-off-outline"
+          slot="end"
+          (click)="tooglePassControl()"
+        ></ion-icon>
+      </ion-item>
+
+      <section class="btn-cont">
+        <ion-toggle></ion-toggle>
+
+        <div class="ion-text-center">
+          <ion-button
+            class="btn-login"
+            size="large"
+            type="submit"
+            [disabled]="form.invalid"
+            expand="block"
+          >Guardar</ion-button>
+        </div>
+
+        <a
+          class="login-link"
+          routerLink="/login"
+        >¿Ya tienes cuenta?</a>
+      </section>
+    </form>
+  </div>
+</ion-content>

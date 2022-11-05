@@ -1,0 +1,30 @@
+
+
+  <!-- <app-menu></app-menu> -->
+ 
+
+  <ion-header [translucent]="true">
+    <ion-toolbar class="toolbar-top">
+      <ion-title>Find a DuckCoder</ion-title>
+
+      <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+
+    <ion-toolbar>
+      <ion-searchbar
+        [debounce]="1000"
+        (ionChange)="handleChange($event)"
+      ></ion-searchbar>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="body-content">
+    <ion-slides pager="true">
+      <ion-slide *ngFor="let slide of results; let i = index">
+       <app-user-card [index]="i"></app-user-card>
+      </ion-slide>
+    </ion-slides>
+  </ion-content>
+

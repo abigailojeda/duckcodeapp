@@ -1,0 +1,135 @@
+@import 'settings.scss';
+
+
+    .logo-cont{
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4em 0 3em 0;
+      border-bottom: 1px solid $duck_pale;
+      ion-img{
+        width: 190px;
+      }
+    }
+    
+      .login-cont{
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        padding-top: 3em;
+        width: 95%;
+        margin: 0 auto;
+      
+          ion-button{
+              height: 50px;
+              --box-shadow: 0;
+              --border-radius:25px;
+              font-size: 16px;
+              margin-top: 10px;
+          
+              &.btn-login{
+                  --background:  #8886FF;
+          
+              }
+              &.btn-register{
+                  --background: #fff;
+                  --color:  #8886FF;
+                  --border-color: #8886FF;
+                  --border-style: solid;
+                  --border-width: 1px;
+              }
+            }
+          
+            ion-title{
+              color: $duck_black;
+              font-weight: bold;
+              margin: 0;
+              padding: 0 0 1em 0.5em;
+            }
+    
+            ion-item {
+              --padding-bottom:10px;
+              --padding-top:10px;
+            }
+    
+            .btn-cont{
+              margin-top:2.5em;
+            }
+  
+            .login-link{
+              display: block;
+              text-align: center;
+              width: 90%;
+              margin: 2em auto 3em auto;
+              font-weight: bolder;
+              color: $duck_violet;
+            }
+  
+             
+    ion-toggle[aria-checked="false"]{
+      position: relative;
+      width: calc(100% - 8px);
+      height: 45px;
+      --handle-width: 42px;
+      --handle-height: 42px;
+      padding: 0;
+      margin-bottom: 2em;
+  
+    
+     &::part(track){
+      border-radius: 25px;
+      background-image: linear-gradient(to bottom, $duck_pastel 0%, $duck_white 100%);
+  
+      &::before {
+          position: absolute;
+          content: "Programador";
+          width: 100%;
+          text-align: center;
+          font-size: 15px;
+          line-height: 45px;
+          color: $duck_black;
+          font-weight: bold;
+        }
+     }
+     
+  
+    }
+  
+    ion-toggle[aria-checked="true"]{
+      position: relative;
+      width: calc(100% - 8px);
+      height: 45px;
+      --handle-width: 42px;
+      --handle-height: 42px;
+      padding: 0;
+      margin-bottom: 2em;
+      &::part(handle){
+          background: $duck_white;
+         } 
+  
+      &::part(track){
+          border-radius: 25px;
+           background-image: linear-gradient(to top, $duck_pastel 0%, $duck_white 100%);
+  
+          &::before {
+          position: absolute;
+          content: "Empresa";
+          width: 100%;
+          text-align: center;
+          font-size: 15px;
+          line-height: 45px;
+          color: $duck_black;
+          font-weight: bold;
+             }
+         }
+  
+   
+   }  
+  }
+    
+
+  
+  
+     
+  

@@ -1,0 +1,41 @@
+
+
+<ion-header>
+  <ion-toolbar class="menu-title">
+    <ion-title>¡Hola <b class="username">{{getUserName()}}</b>!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  class="ion-padding "
+  scroll-y="false"
+>
+
+  <ion-list>
+
+   
+      <ion-menu-toggle *ngFor="let option of menuOptions"  >
+        <ion-item [routerLink]="option.path" >
+          <ion-icon  slot="start" [name]="option.icon"></ion-icon>
+          <ion-label>{{option.value}}</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+
+    <ion-item (click)="logout()" class="logout">
+      <ion-icon slot="start" name="power-outline"></ion-icon>
+      <ion-label>Cerrar sesión</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer class="menu-footer">
+  <ion-toolbar class="menu-title">
+    <ion-img
+      src="/assets/img/duck_code_logo_color.svg"
+      alt="DuckCode"
+    ></ion-img>
+  </ion-toolbar>
+</ion-footer>
+
+
+

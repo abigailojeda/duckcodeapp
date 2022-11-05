@@ -1,0 +1,31 @@
+.menu-body{
+    height: 100%;
+  }
+
+  ion-footer{
+  
+    ion-img{
+        width: 120px;
+        margin: 0 auto;
+    }
+
+  }
+
+  .menu-title{
+    padding: 2.5em 0 1.5em 0;
+  }
+
+  .username{
+    text-transform: capitalize;
+  }
+
+  ion-menu::part(backdrop) {
+    background-color: #c3c2ff;
+  }
+  
+  ion-menu::part(container) {
+    border-radius: 0 20px 20px 0;
+  
+    box-shadow: 4px 0px 16px rgba(53, 34, 53, 0.18);
+  }
+

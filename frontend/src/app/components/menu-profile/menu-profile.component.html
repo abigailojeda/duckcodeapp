@@ -1,0 +1,42 @@
+<ion-menu
+[type]="menuType"
+side="start"
+contentId="lala"
+>
+
+<ion-header>
+  <ion-toolbar class="menu-title">
+    <ion-title>¡Hola <b class="username">{{getUserName()}}</b>!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  class="ion-padding menu-content"
+  scroll-y="false"
+>
+
+  <ion-list>
+    <ion-item routerLink="/search" >
+      <ion-icon  slot="start" name="search-outline"></ion-icon>
+      <ion-label >Buscador</ion-label>
+    </ion-item>
+
+    <ion-item (click)="logout()">
+      <ion-icon slot="start" name="power-outline"></ion-icon>
+      <ion-label>Cerrar sesión</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer >
+  <ion-toolbar class="menu-title">
+    <ion-img
+      src="/assets/img/duck_code_logo_color.svg"
+      alt="DuckCode"
+    ></ion-img>
+  </ion-toolbar>
+</ion-footer>
+</ion-menu>
+
+
+<ion-router-outlet id="lala"></ion-router-outlet>

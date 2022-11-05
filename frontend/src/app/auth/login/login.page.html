@@ -1,0 +1,82 @@
+<ion-content>
+  <section class="logo-cont">
+    <ion-img
+      src="/assets/img/duck_code_logo_color.svg"
+      alt="DuckCode"
+    ></ion-img>
+  </section>
+
+  <div class="login-cont ion-padding">
+    <form
+      #form="ngForm"
+      (ngSubmit)="login(form)"
+    >
+      <ion-title>¡Hola de nuevo!</ion-title>
+
+      <ion-item>
+        <ion-icon
+          name="mail-outline"
+          slot="start"
+        ></ion-icon>
+
+        <ion-input
+          type="email"
+          name="email"
+          placeholder="Introduce tu email"
+          ngModel
+          required="required"
+        ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon
+          name="lock-closed-outline"
+          slot="start"
+        ></ion-icon>
+
+        <ion-input
+          [type]="!showPass ? 'password' : 'text'"
+          name="password"
+          placeholder="Introduce tu contraseña"
+          ngModel
+          required="required"
+        ></ion-input>
+
+        <ion-icon
+          *ngIf="!showPass"
+          name="eye-outline"
+          slot="end"
+          (click)="tooglePass()"
+        ></ion-icon>
+
+        <ion-icon
+          *ngIf="showPass"
+          name="eye-off-outline"
+          slot="end"
+          (click)="tooglePass()"
+        ></ion-icon>
+      </ion-item>
+
+      <section class="btn-cont">
+        <div class="ion-text-center">
+          <ion-button
+            class="btn-login"
+            size="large"
+            type="submit"
+            [disabled]="form.invalid"
+            expand="block"
+          >Entrar</ion-button>
+        </div>
+      </section>
+    </form>
+
+    <div class="ion-text-center">
+      <ion-button
+        class="btn-register"
+        routerLink="/register"
+        size="large"
+        expand="block"
+      >Regístrate</ion-button>
+    </div>
+  </div>
+</ion-content>
