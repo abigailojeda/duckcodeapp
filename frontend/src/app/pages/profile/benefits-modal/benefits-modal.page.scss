@@ -1,0 +1,43 @@
+ion-content{
+    --background: #F5F5F5;
+    --padding-top:80px;
+   
+    ion-list{
+    
+        width: 80%;
+        margin: auto;
+        --ion-item-background: transparent;
+
+       ion-item{
+        --ion-item-background: transparent;
+        margin-bottom: 40px;
+       }
+
+       .btn{
+            --border-radius:25px;
+            height: 50px;
+             width: 90%;
+              --box-shadow: 0;
+              --border-radius:25px;
+              font-size: 16px;
+              margin-top: 10px;
+              --background: #8886FF;
+            --background-hover: #8886FF;
+            --background-activated: #8886FF;
+            --background-focused: #8886FF;
+            --color:#fff;
+
+            &.cancel{
+                --background: #F37E64;
+                --background-hover: #F37E64;
+                --background-activated: #F37E64;
+                --background-focused: #F37E64;
+            }
+       }
+    }
+
+  
+}
+
+
+  

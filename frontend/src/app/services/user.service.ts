@@ -19,9 +19,9 @@ export class UserService {
   AUTH_SERVER_ADDRESS:  string  =  'http://localhost:4000';
 
   constructor(private  httpClient:  HttpClient, private  storage:  Storage) { 
-    if (localStorage.getItem('currentUser')) {
+    if (localStorage.getItem('currentUserName')) {
       this.userStorage.currentUser = JSON.parse(
-        localStorage.getItem('currentUser') as string
+        localStorage.getItem('currentUserName') as string
       );
     }
   }
@@ -53,8 +53,15 @@ export class UserService {
     //     })
     // );
   }
+  getUserById(id) {
+    return this.httpClient.get(`${this.AUTH_SERVER_ADDRESS}/api/users/${id}`);
+  }
 
   setCurrentUser(user: any) {
     this.userStorage.currentUser = user;
+  }
+
+  setCurrentId(id: number) {
+    localStorage.setItem('currentId', id.toString())
   }
 }

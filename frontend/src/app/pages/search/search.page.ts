@@ -56,7 +56,7 @@ export class SearchPage implements OnInit {
 
   setUsers(res){
     res.map((item , index) =>{
-      this.users[index] = item.username;
+      this.users[index] = item;
     })
 
    this.results =  this.users

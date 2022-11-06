@@ -1,1 +1,34 @@
-@import '../profile.page.scss';
+@import '../../../../assets/commons/styles/profile.scss';
+
+.no-tec{
+    font-size: 18px;
+    text-align: center;
+    color: #6e6d74
+}
+
+.btn.save{
+    align-self: flex-end;
+    --background: #47ca68;
+    --background-hover: #47ca68;
+    --background-activated: #47ca68;
+    --background-focused: #47ca68;
+    margin-top: 30px;
+    width: 80%;
+    height: 45px;
+    margin: auto;
+    --border-radius:25px;
+}
+
+ion-badge {
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    background-color: #8886FF;
+    z-index: 9999;
+}
+
+.btn-item{
+    --ion-item-background: transparent;
+    margin-top: 30px;
+    --border:none;
+}

@@ -26,7 +26,15 @@ const routes: Routes = [
   {
     path: 'job-profile',
     loadChildren: () => import('./job-profile/job-profile.module').then( m => m.JobProfilePageModule)
+  },  {
+    path: 'tecno-modal',
+    loadChildren: () => import('./tecno-modal/tecno-modal.module').then( m => m.TecnoModalPageModule)
+  },
+  {
+    path: 'benefits-modal',
+    loadChildren: () => import('./benefits-modal/benefits-modal.module').then( m => m.BenefitsModalPageModule)
   }
+
 ];
 
 @NgModule({

@@ -1,5 +1,114 @@
 
 
 <ion-content>
+  <form [formGroup]="userEditionForm">
+  
 
+      <ion-card class="bio">
+        <ion-card-header>
+          <ion-card-subtitle *ngIf="!user?.isCompany">Tell programmers a little about yourself</ion-card-subtitle>
+          <ion-card-subtitle *ngIf="user?.isCompany">Tell companies a little about yourself</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-textarea
+          [autoGrow]="true"
+          formControlName="bio"
+          required
+          placeholder="something about you"
+        >
+        </ion-textarea>
+        </ion-card-content>
+      
+      </ion-card>
+
+      <ion-card class="tecno-area {{!user?.isCompany ? ' company' : ''}}">
+      
+        <ion-badge  *ngIf="tecnologies?.length" color="primary">{{tecnologies?.length}}</ion-badge>
+
+        <ion-card-header >
+          <ion-card-subtitle>
+            <ng-container >  Your tools</ng-container>
+          </ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+      
+          <ng-container  *ngIf="!tecnologies?.length">
+            <ion-label class="no-tec">
+              Tell us which technologies you work with
+            </ion-label>  
+          </ng-container>
+
+          <ng-container  *ngIf="tecnologies?.length">
+          <ion-chip *ngFor="let tecnologie of tecnologies">
+            <ion-label>{{tecnologie}}</ion-label>
+            <ion-icon name="close" color="tertiary" (click)="presentAlert(tecnologie, 'tecnologies')"></ion-icon>
+          </ion-chip>
+        </ng-container>
+        </ion-card-content>
+     
+      </ion-card>
+   
+      <ion-card
+       *ngIf="!user?.isCompany" 
+       class="benefits-area {{!user?.isCompany ? ' company' : ''}}"
+       style = "overflow: visible;">
+       <ion-badge  *ngIf="benefits?.length" color="primary">{{benefits?.length}}</ion-badge>
+
+        <ion-card-header>
+          <ion-card-subtitle>
+            Benefits on your company</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+
+
+          <ng-container  *ngIf="!benefits?.length">
+            <ion-label class="no-tec">
+              Tell what benefits your company offers
+            </ion-label>  
+          </ng-container>
+
+          <ng-container  *ngIf="benefits?.length">
+          <ion-chip *ngFor="let benefit of benefits">
+            <ion-label>{{benefit}}</ion-label>
+            <ion-icon name="close" color="tertiary" (click)="presentAlert(benefit, 'benefits')"></ion-icon>
+          </ion-chip>
+          </ng-container>
+        </ion-card-content>
+       
+      </ion-card>
+
+
+    
+        <ion-fab 
+        slot="fixed"
+         vertical="bottom"
+          horizontal="start"
+          >
+          
+          <ion-fab-button  >
+            <ion-icon name="add"></ion-icon>
+          </ion-fab-button>
+          <ion-fab-list side="top">
+            
+            <ion-fab-button (click)="openTecnoModal()" >
+              <ion-label>add tool</ion-label>
+            </ion-fab-button>
+           
+            <ion-fab-button *ngIf="!user?.isCompany"  (click)="openBenefitsModal()"  >
+              <ion-label>add benefit</ion-label>
+            </ion-fab-button>
+            
+          </ion-fab-list>
+        </ion-fab>
+
+        <ion-item lines="none" class="btn-item">
+          <ion-button class="btn save" (click)="saveProfesionalData()">
+            Save
+          </ion-button>
+        </ion-item>
+      
+
+    </form>
+   
 </ion-content>

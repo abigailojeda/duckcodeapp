@@ -41,8 +41,9 @@ export class LoginPage implements OnInit {
         this.presentAlert("invalid credentials");
         return;
       }
-      localStorage.setItem('currentUser', JSON.stringify(user))
-      this.UserService.setCurrentUser(user)
+
+      localStorage.setItem('currentUserName', JSON.stringify(user.username))
+      
       this.router.navigateByUrl('/search');
       form.reset();
     }, err => {

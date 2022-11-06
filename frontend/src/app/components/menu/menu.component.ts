@@ -41,7 +41,7 @@ export class MenuComponent implements OnInit {
 
   getUserName(){
     let username;
-    username=this.userStorage.currentUser.username;
+    username=this.userStorage.currentUser;
     //console.log('username:',username)
     return username;
   }

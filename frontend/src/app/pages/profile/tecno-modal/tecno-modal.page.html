@@ -1,0 +1,17 @@
+
+
+<ion-content>
+
+  <ion-list>
+  <ion-item>
+    <ion-label color="tertiary" position="floating">Save a new tool</ion-label>
+    <ion-input [(ngModel)]="tool" name="tool" color="tertiary"></ion-input>
+  </ion-item>
+  <ion-button class="save btn" (click)="saveTool()">
+    Save
+  </ion-button>
+  <ion-button class="cancel btn" (click)="closeModal()">
+    Cancel
+  </ion-button>
+</ion-list>
+</ion-content>

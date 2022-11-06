@@ -1,0 +1,176 @@
+
+ ion-col {
+    text-align: center;
+  }
+ 
+  ion-content{
+    --padding-top:80px;
+    --background: #F5F5F5;
+  }
+ion-list{
+  width: 80%;
+  margin: 0 auto;
+}
+  .error {
+    color: red;
+  }
+
+
+  ion-card{
+    width: 250px;
+    height: 200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius:25px;
+    margin-top: 150px;
+
+    &.bio{
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 90%;
+    min-height: 200px;
+    padding-bottom: 1em;
+    margin-top: 10px;
+
+    ion-card-header{
+      margin: 0;
+      width: 100%;
+      border-bottom: 2px solid #8886FF;
+
+      ion-card-subtitle{
+        color: #8886FF;
+      }
+    }
+
+    &.bio > ion-card-content{
+      overflow: scroll;
+    }
+
+    ion-card-content{
+      ion-textarea::part(textarea){
+        width: 90%;
+      }
+    }
+    }
+
+    &.tecno-area{
+     width: 100%;
+     background-color: rgba($color: #8886FF, $alpha: 0.25);
+     margin:33px 0 28px 0;
+     padding: 0  0 20px 0;
+     border-radius: 0;
+     align-items: flex-start;
+
+     &.company{
+      height:120px ;
+      margin-bottom: 0;
+     }
+
+     ion-card-content{
+      width: 100%;
+
+      ion-chip{
+        --background:#fff;
+      }
+     }
+
+     ion-card-header{
+      margin: 0;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      ion-card-subtitle{
+        color: #8886FF;
+      }
+     }
+    }
+
+    &.tecno-area > ion-card-content{
+      overflow: scroll;
+    }
+
+    &.benefits-area{
+      width: 100%;
+      background-color: rgba($color: #8886FF, $alpha: 0.10);
+      margin:0;
+      padding: 0  0 20px 0;
+      border-radius: 0;
+      align-items: flex-start;
+ 
+    
+      ion-card-content{
+       width: 100%;
+ 
+       ion-chip{
+         --background:#fff;
+       }
+      }
+ 
+      ion-card-header{
+       margin: 0;
+       justify-content: flex-start;
+       align-items: flex-start;
+ 
+       ion-card-subtitle{
+         color: #8886FF;
+       }
+      }
+     }
+ 
+     &.benefits-area > ion-card-content{
+       overflow: scroll;
+     }
+   
+  }
+
+  ion-card-header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+    ion-card-subtitle{
+      text-align: center;
+    }
+
+    ion-button{
+      margin: 1em 0;
+      --background: #8886FF;
+      --background-hover: #8886FF;
+      --background-activated: #8886FF;
+      --background-focused: #8886FF;
+    }
+  }
+
+  ion-fab{
+    // position: absolute;
+    // right: 10px;
+    // bottom: 10px;
+  
+    ion-fab-button{
+      --background: #8886FF;
+      --background-hover: #8886FF;
+      --background-activated: #8886FF;
+      --background-focused: #8886FF;
+
+    }
+  }
+
+  ion-fab-list{
+    ion-fab-button{
+      width: 150px;
+      --border-radius: 25px;
+   
+
+      ion-label{
+        color: #fff;
+        font-weight: bold;
+      }
+      
+    
+    }
+  }

@@ -23,7 +23,7 @@
   <ion-content class="body-content">
     <ion-slides pager="true">
       <ion-slide *ngFor="let slide of results; let i = index">
-       <app-user-card [index]="i"></app-user-card>
+       <app-user-card [result]="slide"></app-user-card>
       </ion-slide>
     </ion-slides>
   </ion-content>

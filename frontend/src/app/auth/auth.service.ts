@@ -15,7 +15,9 @@ export class AuthService {
 
   AUTH_SERVER_ADDRESS:  string  =  'http://localhost:4000';
 
-  constructor(private  httpClient:  HttpClient, private  storage:  Storage, private UserService: UserService) { }
+  constructor(private  httpClient:  HttpClient,
+    private  storage:  Storage, 
+    private UserService: UserService) { }
 
   private getOptions(user: User){
     let base64UserAndPassword = window.btoa(user.username + ":" + user.password);
@@ -51,6 +53,7 @@ export class AuthService {
       tap(async (res: AuthResponse) => {
 
         if (res.user) {
+          this.UserService.setCurrentId(res.user.id)
           await this.storage.set("token", res.access_token);
           // await this.storage.set("idUser", res.user.id);
         }

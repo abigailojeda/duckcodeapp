@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { PhotouserService } from '../../../services/photouser.service';
+import { UserService } from '../../../services/user.service';
+import { ProfileService } from '../../../services/profile.service';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-personal-data',
@@ -8,20 +11,59 @@ import { PhotouserService } from '../../../services/photouser.service';
   styleUrls: ['./personal-data.page.scss'],
 })
 export class PersonalDataPage implements OnInit {
-  userEdition: FormGroup;
+  userEditionForm: FormGroup;
   isSubmitted: boolean = false;
   capturedPhoto: string = "";
+  public editMode: boolean = false;
+  public userId: number;
+  public user:any;
 
   constructor(
     private photoService: PhotouserService,
+    private UserService : UserService,
+    public formBuilder: FormBuilder,
+    private storage: Storage,
+    private ProfileService : ProfileService
   ) { }
 
   ngOnInit() {
     //this.userEdition.reset();
     this.isSubmitted = false;
     this.capturedPhoto = "";
+    this.userEditionForm = this.formBuilder.group({
+      name: [''],
+    });
+    this.getUserId();
+    // this.userEdition.setValue({
+
+    // })
   }
 
+  getUserId(){
+    let id:string;
+    id = localStorage.getItem('currentId') as string
+    this.userId = parseInt(id)
+
+   // set actual profile if exits:
+    this.getProfile(this.userId)
+  }
+
+  async getProfile(id){
+    let token = await this.storage.get("token");
+    this.ProfileService.getProfileById(token,2 ).subscribe((data) => {
+     if(data[0]){
+      this.user= data;
+     }else{
+      this.user = '';
+     }
+    });
+    // this.UserService.getUserById(id).subscribe((data) => {
+    //   this.user = data;
+    //   this.userEditionForm.setValue({
+    //     name: data['username'],
+    //   });
+    // });
+  }
   takePhoto() {
     this.photoService.takePhoto().then(data => {
       this.capturedPhoto = data.webPath;
@@ -37,6 +79,10 @@ export class PersonalDataPage implements OnInit {
  discardImage() {
 
    this.capturedPhoto = null;
+ }
+
+ onSubmit(){
+  console.log(this.userEditionForm.value)
  }
   async saveUserEdition() {
     
