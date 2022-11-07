@@ -1,77 +1,147 @@
-
 <ion-content>
 
-  <!-- <ion-grid>
-    <ion-row class="ion-align-items-center">
-      <ion-col size="6">
-        <ion-avatar>
-          <img class="photo-frame" *ngIf="capturedPhoto" [src]="capturedPhoto" (click)="takePhoto()"/>
-          <img class="photo-frame" *ngIf="!capturedPhoto" src="../../../../assets/img/users/default.jpg"
-          (click)="takePhoto()" />
-        </ion-avatar>
+  <h1 *ngIf="user">
+    <form [formGroup]="userEditionForm">
+      <ion-list>
+        <ion-fab
+        slot="fixed"
+        vertical="top"
+        horizontal="start"
+      >
+        <ion-fab-button>
+          <ion-icon name="camera-outline"></ion-icon>
+        </ion-fab-button>
+    
+        <ion-fab-list side="bottom">
+          <ion-fab-button  (click)="takePhoto()">
+            <ion-icon name="camera-outline"></ion-icon>
+            <ion-label>take a photo</ion-label>
+          </ion-fab-button>
+    
+          <ion-fab-button (click)="pickImage()">
+          <ion-icon name="image-outline"></ion-icon>
+            <ion-label>pick an image</ion-label>
+          </ion-fab-button>
+
+          <ion-fab-button class="discard" (click)="discardImage()">
+            <ion-icon name="close-outline"></ion-icon>
+            <ion-label>discard image</ion-label>
+          </ion-fab-button>
+        </ion-fab-list>
+      </ion-fab>
+        <ion-item>
         
-      </ion-col>
-      <ion-col size="6">
-        <ion-button color="primary" fill="outline" (click)="takePhoto()">
-          <ion-icon slot="start" name="camera-outline"></ion-icon>
-          Take a photo
-        </ion-button>
-        <ion-button color="primary" fill="outline" (click)="pickImage()">
-          <ion-icon slot="start" name="image-outline"></ion-icon>
-          Pick an image
-        </ion-button>
-        <ion-button color="danger" fill="outline" (click)="discardImage()">
-          <ion-icon slot="start" name="aperture"></ion-icon>
-          Discard image
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid> -->
- 
+          <ion-avatar slot="start">
+            <img
+              class="photo-frame"
+              *ngIf="capturedPhoto"
+              [src]="sanitizer.bypassSecurityTrustResourceUrl(capturedPhoto)"
+              (click)="takePhoto()"
+            >
 
-<h1 *ngIf="user">
-  <form [formGroup]="userEditionForm" (ngSubmit)="onSubmit()">
-    <ion-list>
-     
-    <ion-item>
-      <ion-avatar slot="start">
-        <img class="photo-frame" *ngIf="capturedPhoto" [src]="capturedPhoto" (click)="takePhoto()"/>
-        <img class="photo-frame" *ngIf="!capturedPhoto" src="../../../../assets/img/users/default.jpg"
-        (click)="takePhoto()" />
-      </ion-avatar>
-      <ion-input
-      formControlName="name"
-      type="text"
-      ></ion-input>
+            <img
+              class="photo-frame"
+              *ngIf="!capturedPhoto"
+              src="../../../../assets/img/users/default.jpg"
+              (click)="takePhoto()"
+            >
+          </ion-avatar>
+
+          <ion-label
+            class="welcome"
+          >Welcome again!</ion-label>
+        </ion-item>
+
+        <ion-item>
+          <ion-label
+            color="tertiary"
+            position="floating"
+          >User Name</ion-label>
+
+          <ion-input
+            formControlName="name"
+            type="text"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label
+            color="tertiary"
+            position="floating"
+          >City</ion-label>
+
+          <ion-input
+            formControlName="city"
+            type="text"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label
+            color="tertiary"
+            position="floating"
+          >Email</ion-label>
+
+          <ion-input
+            formControlName="email"
+            type="email"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label
+            color="tertiary"
+            position="floating"
+          >Phone</ion-label>
+
+          <ion-input
+            formControlName="phone"
+            type="text"
+          ></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-item
+      lines="none"
+      class="btn-item"
+    >
+      <ion-button
+        class="btn save"
+        (click)="saveUserEdition()"
+      >Save</ion-button>
     </ion-item>
-  
-  </ion-list>
-  </form>
-</h1>
+    </form>
+  </h1>
 
-<ion-card *ngIf="!user">
-  <ion-card-header>
-    <ion-card-title>Create your profile</ion-card-title>
-    <ion-button>
-      <ion-icon slot="icon-only" name="add-outline"></ion-icon>
-    </ion-button>
-    <ion-card-subtitle>good information for contact with professionals</ion-card-subtitle>
-  </ion-card-header>
+  <ion-card *ngIf="!user">
+    <ion-card-header>
+      <ion-card-title>Create your profile</ion-card-title>
 
-</ion-card>
-<!-- 
-  <form [formGroup]="userEdition" (ngSubmit)="saveUserEdition()" novalidate>
+      <ion-button>
+        <ion-icon
+          slot="icon-only"
+          name="add-outline"
+        ></ion-icon>
+      </ion-button>
+
+      <ion-card-subtitle>
+        good information for contact with professionals
+      </ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+  <!-- <form [formGroup]="userEdition" (ngSubmit)="saveUserEdition()" novalidate>
     <ion-item lines="full">
       <ion-label position="floating">Brand</ion-label>
       <ion-input formControlName="brand" type="text" required></ion-input>
     </ion-item> -->
-    <!-- <span class="error ion-padding" *ngIf="isSubmitted && errorControl.brand.errors?.required">Brand is required.</span> -->
-    <!-- <ion-item lines="full">
+  <!-- <span class="error ion-padding" *ngIf="isSubmitted && errorControl.brand.errors?.required">Brand is required.</span> -->
+  <!-- <ion-item lines="full">
       <ion-label position="floating">Model</ion-label>
       <ion-input formControlName="model" type="text" required></ion-input>
     </ion-item> -->
-    <!-- <span class="error ion-padding" *ngIf="isSubmitted && errorControl.model.errors?.required">Model is required.</span> -->
-    <!-- <ion-row>
+  <!-- <span class="error ion-padding" *ngIf="isSubmitted && errorControl.model.errors?.required">Model is required.</span> -->
+  <!-- <ion-row>
       <ion-col>
         <ion-button type="submit" color="primary" expand="block">Submit</ion-button>
       </ion-col>

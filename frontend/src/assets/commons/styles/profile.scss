@@ -1,8 +1,4 @@
 
- ion-col {
-    text-align: center;
-  }
- 
   ion-content{
     --padding-top:80px;
     --background: #F5F5F5;
@@ -11,10 +7,6 @@ ion-list{
   width: 80%;
   margin: 0 auto;
 }
-  .error {
-    color: red;
-  }
-
 
   ion-card{
     width: 250px;
@@ -46,7 +38,7 @@ ion-list{
     }
 
     &.bio > ion-card-content{
-      overflow: scroll;
+      overflow-Y: auto;
     }
 
     ion-card-content{
@@ -65,7 +57,7 @@ ion-list{
      align-items: flex-start;
 
      &.company{
-      height:120px ;
+
       margin-bottom: 0;
      }
 
@@ -89,7 +81,7 @@ ion-list{
     }
 
     &.tecno-area > ion-card-content{
-      overflow: scroll;
+      overflow-Y: auto;
     }
 
     &.benefits-area{
@@ -121,7 +113,11 @@ ion-list{
      }
  
      &.benefits-area > ion-card-content{
-       overflow: scroll;
+       overflow-Y: auto;
+       
+       &::part(scroll)::-webkit-scrollbar {
+        display: none;
+     }
      }
    
   }
@@ -157,6 +153,20 @@ ion-list{
       --background-activated: #8886FF;
       --background-focused: #8886FF;
 
+      &.discard{
+        --background: #F37E64;
+        --background-hover: #F37E64;
+        --background-activated: #F37E64;
+        --background-focused: #F37E64;
+      }
+    
+    }
+
+    ion-fab-list{
+      ion-icon{
+        color:white;
+        margin-right: 10px; 
+      }
     }
   }
 
@@ -174,3 +184,15 @@ ion-list{
     
     }
   }
+
+  .btn.save{
+    align-self: flex-end;
+    --background: #47ca68;
+    --background-hover: #47ca68;
+    --background-activated: #47ca68;
+    --background-focused: #47ca68;
+    width: 80%;
+    height: 45px;
+    margin: 10px auto 70px auto;
+    --border-radius:25px;
+}

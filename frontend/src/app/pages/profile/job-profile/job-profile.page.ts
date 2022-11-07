@@ -4,7 +4,7 @@ import { PhotouserService } from '../../../services/photouser.service';
 import { UserService } from '../../../services/user.service';
 import { Storage } from '@ionic/storage';
 import { ProfesionalService } from '../../../services/profesional.service';
-import { ModalController, AlertController } from '@ionic/angular';
+import { ModalController, AlertController, ToastController } from '@ionic/angular';
 import { TecnoModalPage } from '../tecno-modal/tecno-modal.page';
 import { BenefitsModalPage } from '../benefits-modal/benefits-modal.page';
 import { ActivatedRoute } from '@angular/router';
@@ -27,14 +27,13 @@ export class JobProfilePage implements OnInit {
   public bio = '';
 
   constructor(
-    private photoService: PhotouserService,
-    private UserService : UserService,
     public formBuilder: FormBuilder,
     private storage: Storage,
     private ProfesionalService : ProfesionalService,
     private modalCtrl:ModalController,
     private alertController: AlertController,
-    private activatedRoute: ActivatedRoute
+    private toastCtrl: ToastController
+    
   ) { }
 
   ngOnInit() {
@@ -53,7 +52,7 @@ export class JobProfilePage implements OnInit {
     id = localStorage.getItem('currentId') as string
     this.userId = parseInt(id)
 
-   // set actual profile if exits:
+   // set actual profesional if exists:
     this.getProfesional(this.userId)
   }
 
@@ -76,10 +75,11 @@ export class JobProfilePage implements OnInit {
       //fill tecnologies array
       this.benefits = data[0].benefits.split('/')
      }else{
+      
       this.isNew = true;
       this.user = 'empty';
-     this.tecnologies = []
-     this.benefits = []
+      this.tecnologies = []
+      this.benefits = []
 
       console.log(this.isNew)
      }
@@ -158,6 +158,7 @@ export class JobProfilePage implements OnInit {
     await alert.present();
   }
 
+  // update user profile
   async saveProfesionalData(){
    
     let tecnologiesString = '';
@@ -180,8 +181,21 @@ export class JobProfilePage implements OnInit {
     console.log(token )
     this.ProfesionalService.updateProfesionalById(token, this.user.id, profesionalUser).subscribe(
       () => {
-        console.log(':)')
+        //console.log(':)')
+        this.presentToast('data have been saved')
       }
     );
+  }
+
+  //confirm user profile update
+  
+  async presentToast( message:string) {
+    const toast = await this.toastCtrl.create({
+      message,
+      duration: 2000,
+      position:  'bottom'
+    });
+
+    await toast.present();
   }
 }

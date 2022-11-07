@@ -26,6 +26,11 @@ export class ProfesionalService {
     return options;
   }
 
+  createProfesional(token, profesional){
+    let myOptions = this.getOptions(token);
+    return this.httpClient.post(`${this.AUTH_SERVER_ADDRESS}/api/profesionals`,profesional,myOptions);
+  }
+
   getProfesionals(token) {
     let myOptions = this.getOptions(token);
     //console.log(myOptions)

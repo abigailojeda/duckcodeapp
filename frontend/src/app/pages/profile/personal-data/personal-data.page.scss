@@ -1,1 +1,41 @@
 @import '../../../../assets/commons/styles/profile.scss';
+
+.welcome{
+    font-size: 18px;
+    color: #8886FF;
+}
+
+ion-item, ion-list{
+    --ion-item-background: transparent;
+}
+ion-list{
+    margin-bottom: 30px;
+}
+ion-item{
+    margin-bottom: 20px;
+}
+
+ion-avatar{
+    width: 80px;
+    height: 80px;
+}
+ion-fab, ion-fab-button{
+    width: 40px;
+    height: 40px;
+    margin-left: -5px;
+    --padding-left:0;
+    --padding-right:0;
+    --padding-bottom:0;
+    --padding-top:0;
+   padding: 0;
+
+    .button-native{
+        width: 40px;
+        height: 40px;
+        --padding-left:0;
+        --padding-right:0;
+        --padding-bottom:0;
+        --padding-top:0;
+        padding: 0;
+    }
+}

@@ -27,6 +27,11 @@ export class ProfileService {
     return options;
   }
 
+  createProfile(token, profile){
+    let myOptions = this.getOptions(token);
+    return this.httpClient.post(`${this.AUTH_SERVER_ADDRESS}/api/profiles`,profile,myOptions);
+  }
+
   getProfiles(token) {
     let myOptions = this.getOptions(token);
     //console.log(myOptions)
@@ -36,5 +41,11 @@ export class ProfileService {
     let myOptions = this.getOptions(token);
     //console.log(myOptions)
     return this.httpClient.get(`${this.AUTH_SERVER_ADDRESS}/api/profiles/user/${id}`, myOptions);
+  }
+
+  updateProfileById(token, id, profile){
+    let myOptions = this.getOptions(token);
+
+    return this.httpClient.put(`${this.AUTH_SERVER_ADDRESS}/api/profiles/${id}`,profile,myOptions);
   }
 }
