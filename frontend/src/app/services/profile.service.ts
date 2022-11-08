@@ -27,9 +27,16 @@ export class ProfileService {
     return options;
   }
 
-  createProfile(token, profile){
-    let myOptions = this.getOptions(token);
-    return this.httpClient.post(`${this.AUTH_SERVER_ADDRESS}/api/profiles`,profile,myOptions);
+  createProfile(id, profile, blob){
+    // let myOptions = this.getOptions(token);
+    let formData = new FormData();
+    formData.append("userId", id);
+    formData.append("name", profile.name);
+    formData.append("city", profile.city);
+    formData.append("email", profile.email);
+    formData.append("phone", profile.phone);
+    formData.append("file", blob);
+    return this.httpClient.post(`${this.AUTH_SERVER_ADDRESS}/api/profiles`,formData);
   }
 
   getProfiles(token) {

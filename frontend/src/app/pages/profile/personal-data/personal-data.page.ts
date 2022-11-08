@@ -127,13 +127,15 @@ export class PersonalDataPage implements OnInit {
       if (this.capturedPhoto != "") {
         const response = await fetch(this.capturedPhoto);
         blob = await response.blob();
+        console.log('blob:', blob)
       }
+
+      //Slet token = await this.storage.get("token");
  
-      // this.bicycleService.createBicycle(this.bicycleForm.value, blob).subscribe(data => {
-      //   console.log("Photo sent!");
-      //   this.router.navigateByUrl("/list-bicycles");
-      // })
-    // }
+      this.ProfileService.createProfile(this.userId,this.userEditionForm.value, blob).subscribe(data => {
+        console.log("Photo sent!");
+      })
+    
    }
 
 }

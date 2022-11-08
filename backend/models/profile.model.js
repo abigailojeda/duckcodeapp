@@ -12,7 +12,7 @@ module.exports = (sequelize, Sequelize) => {
       phone: {
         type: Sequelize.STRING
       },
-      imageName: {
+      filename: {
         type: Sequelize.STRING
       }
     });

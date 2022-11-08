@@ -1,6 +1,6 @@
 <ion-content>
 
-  <h1 *ngIf="user">
+  <h1>
     <form [formGroup]="userEditionForm">
       <ion-list>
         <ion-fab
@@ -113,7 +113,7 @@
     </form>
   </h1>
 
-  <ion-card *ngIf="!user">
+  <!-- <ion-card *ngIf="!user">
     <ion-card-header>
       <ion-card-title>Create your profile</ion-card-title>
 
@@ -128,7 +128,7 @@
         good information for contact with professionals
       </ion-card-subtitle>
     </ion-card-header>
-  </ion-card>
+  </ion-card> -->
 
   <!-- <form [formGroup]="userEdition" (ngSubmit)="saveUserEdition()" novalidate>
     <ion-item lines="full">

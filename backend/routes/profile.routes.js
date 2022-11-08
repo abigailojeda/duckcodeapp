@@ -1,11 +1,12 @@
 module.exports = app => {
     const profiles = require("../controllers/profile.controller.js");
     const auth = require("../controllers/auth.js");
+    var upload = require('../multer/upload');
 
     var router = require("express").Router();
 
     // Create a new profiles
-    router.post("/", auth.isAuthenticated, profiles.create);
+    router.post("/",upload.single('file'), profiles.create);
 
     // Retrieve all profiles
     router.get("/", auth.isAuthenticated, profiles.findAll);
