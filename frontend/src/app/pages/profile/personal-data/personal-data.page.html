@@ -42,7 +42,7 @@
             <img
               class="photo-frame"
               *ngIf="!capturedPhoto"
-              src="../../../../assets/img/users/default.jpg"
+              src="http://localhost:4000/images/{{profileImg}}"
               (click)="takePhoto()"
             >
           </ion-avatar>
@@ -113,38 +113,4 @@
     </form>
   </h1>
 
-  <!-- <ion-card *ngIf="!user">
-    <ion-card-header>
-      <ion-card-title>Create your profile</ion-card-title>
-
-      <ion-button>
-        <ion-icon
-          slot="icon-only"
-          name="add-outline"
-        ></ion-icon>
-      </ion-button>
-
-      <ion-card-subtitle>
-        good information for contact with professionals
-      </ion-card-subtitle>
-    </ion-card-header>
-  </ion-card> -->
-
-  <!-- <form [formGroup]="userEdition" (ngSubmit)="saveUserEdition()" novalidate>
-    <ion-item lines="full">
-      <ion-label position="floating">Brand</ion-label>
-      <ion-input formControlName="brand" type="text" required></ion-input>
-    </ion-item> -->
-  <!-- <span class="error ion-padding" *ngIf="isSubmitted && errorControl.brand.errors?.required">Brand is required.</span> -->
-  <!-- <ion-item lines="full">
-      <ion-label position="floating">Model</ion-label>
-      <ion-input formControlName="model" type="text" required></ion-input>
-    </ion-item> -->
-  <!-- <span class="error ion-padding" *ngIf="isSubmitted && errorControl.model.errors?.required">Model is required.</span> -->
-  <!-- <ion-row>
-      <ion-col>
-        <ion-button type="submit" color="primary" expand="block">Submit</ion-button>
-      </ion-col>
-    </ion-row>
-  </form> -->
 </ion-content>

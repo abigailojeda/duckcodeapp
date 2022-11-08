@@ -6,10 +6,10 @@ module.exports = app => {
     var router = require("express").Router();
 
     // Create a new profiles
-    router.post("/",upload.single('file'), profiles.create);
+    router.post("/",upload.single('file'),auth.isAuthenticated, profiles.create);
 
     // Retrieve all profiles
-    router.get("/", auth.isAuthenticated, profiles.findAll);
+    router.get("/", profiles.findAll);
 
     // Retrieve a single profiles with id
     router.get("/:id", auth.isAuthenticated, profiles.findOne);

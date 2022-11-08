@@ -21,6 +21,7 @@ export class PersonalDataPage implements OnInit {
   public userId: number;
   public user:any;
   public isNew:boolean = false;
+  public profileImg:string;
 
   constructor(
     private photoService: PhotouserService,
@@ -81,8 +82,11 @@ export class PersonalDataPage implements OnInit {
         // image: data[0]['image'],
       });
 
+      //set profile image:
+      this.profileImg = data[0]['filename'];
      }else{
 
+      this.profileImg='../../../../assets/img/users/default.jpg'
       this.user = '';
       this.isNew = true;
       console.log(this.user)
@@ -130,9 +134,9 @@ export class PersonalDataPage implements OnInit {
         console.log('blob:', blob)
       }
 
-      //Slet token = await this.storage.get("token");
+      let token = await this.storage.get("token");
  
-      this.ProfileService.createProfile(this.userId,this.userEditionForm.value, blob).subscribe(data => {
+      this.ProfileService.createProfile(token, this.userId,this.userEditionForm.value, blob).subscribe(data => {
         console.log("Photo sent!");
       })
     
