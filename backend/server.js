@@ -1,5 +1,7 @@
 require('dotenv').config();
  
+var path = require('path');
+
 const jwt = require('jsonwebtoken');
 const express = require('express');
 const cors = require('cors');
@@ -25,7 +27,9 @@ const db = require("./models");
 
 // For explotation. Database is not dropped.
 db.sequelize.sync(); 
-
+// public directory
+// DECOMMENT:
+app.use(express.static(path.join(__dirname, 'public')));
 // Development only. Drops and re-sync db everytime the server starts.
 // db.sequelize.sync({ force: true }).then(() => {
 //   console.log("Drop and re-sync db.");

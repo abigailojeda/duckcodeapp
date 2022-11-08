@@ -6,7 +6,7 @@ const Op = db.Sequelize.Op;
 exports.create = (req, res) => {
     // Validate request
     console.log(req.body)
-    if (!req.body.id) {
+    if (!req.body) {
         res.status(400).send({
             message: "Content can not be empty!"
         });
@@ -15,13 +15,12 @@ exports.create = (req, res) => {
 
     // Create a Profile
     const profile = {
-        id: req.body.id,
         userId: req.body.userId,
         name: req.body.name,
         city: req.body.city,
         email: req.body.email,
         phone: req.body.phone,
-        filename: req.body.file.filename,
+        filename: req.file ? req.file.filename : "",
     };
 
     // Save Profile in the database
