@@ -17,8 +17,8 @@ module.exports = app => {
     // Retrieve all motors equals an id
     router.get("/user/:id", auth.isAuthenticated, profiles.findAllByUserId);
 
-    // Update a profiles with id
-    router.put("/:id", auth.isAuthenticated, profiles.update);
+    // Update a profile with id
+    router.put("/:id",upload.single('file'), auth.isAuthenticated, profiles.update);
 
     // Delete a profiles with id
     router.delete("/:id", auth.isAuthenticated, profiles.delete);

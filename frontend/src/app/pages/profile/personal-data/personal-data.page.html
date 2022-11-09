@@ -38,13 +38,22 @@
               [src]="sanitizer.bypassSecurityTrustResourceUrl(capturedPhoto)"
               (click)="takePhoto()"
             >
-
-            <img
+            <ng-container *ngIf="profileImg?.length>1">
+            <img 
               class="photo-frame"
               *ngIf="!capturedPhoto"
               src="http://localhost:4000/images/{{profileImg}}"
               (click)="takePhoto()"
             >
+          </ng-container>
+            <ng-container *ngIf="profileImg?.length<1">
+            <img 
+              class="photo-frame"
+              *ngIf="!capturedPhoto"
+              src="assets/img/users/default.jpg"
+              (click)="takePhoto()"
+            >
+          </ng-container>
           </ion-avatar>
 
           <ion-label

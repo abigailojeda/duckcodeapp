@@ -50,9 +50,17 @@ export class ProfileService {
     return this.httpClient.get(`${this.AUTH_SERVER_ADDRESS}/api/profiles/user/${id}`, myOptions);
   }
 
-  updateProfileById(token, id, profile){
+  updateProfileById(token, userId, id, profile, blob){
+    console.log('esto hay aqui:', profile, 'userID: ', userId, ' id: ', id, 'blob: ', blob)
     let myOptions = this.getOptions(token);
+    let formData = new FormData();
+    formData.append("userId", userId);
+    formData.append("name", profile.name);
+    formData.append("city", profile.city);
+    formData.append("email", profile.email);
+    formData.append("phone", profile.phone);
+    formData.append("file", blob);
 
-    return this.httpClient.put(`${this.AUTH_SERVER_ADDRESS}/api/profiles/${id}`,profile,myOptions);
+    return this.httpClient.put(`${this.AUTH_SERVER_ADDRESS}/api/profiles/${id}`,formData,myOptions);
   }
 }

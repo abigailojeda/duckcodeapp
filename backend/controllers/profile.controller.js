@@ -81,8 +81,19 @@ exports.findOne = (req, res) => {
 // Update a Profile by the id in the request
 exports.update = (req, res) => {
     const id = req.params.id;
+    console.log('file: ',req.file)
+    console.log('idddddd:',req.body)
 
-    Profile.update(req.body, {
+    const profile = {
+        userId: req.body.userId,
+        name: req.body.name,
+        city: req.body.city,
+        email: req.body.email,
+        phone: req.body.phone,
+        filename: req.file ? req.file.filename : "",
+    };
+
+    Profile.update(profile, {
             where: { id: id }
         })
         .then(num => {

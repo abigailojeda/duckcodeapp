@@ -19,9 +19,10 @@ export class PersonalDataPage implements OnInit {
   capturedPhoto: string = "";
   public editMode: boolean = false;
   public userId: number;
+  public profileId: number;
   public user:any;
   public isNew:boolean = false;
-  public profileImg:string;
+  public profileImg:string = '';
 
   constructor(
     private photoService: PhotouserService,
@@ -84,9 +85,10 @@ export class PersonalDataPage implements OnInit {
 
       //set profile image:
       this.profileImg = data[0]['filename'];
+      //set profile id:
+      this.profileId = data[0]['id'];
      }else{
 
-      this.profileImg='../../../../assets/img/users/default.jpg'
       this.user = '';
       this.isNew = true;
       console.log(this.user)
@@ -135,10 +137,22 @@ export class PersonalDataPage implements OnInit {
       }
 
       let token = await this.storage.get("token");
- 
+
+      //create new profile
+      if(this.isNew){
       this.ProfileService.createProfile(token, this.userId,this.userEditionForm.value, blob).subscribe(data => {
-        console.log("Photo sent!");
+        console.log("profile created");
+        this.isNew = false;
       })
+      }
+      //update profile
+      else{
+      this.ProfileService.updateProfileById(token, this.userId,this.profileId,this.userEditionForm.value, blob).subscribe(data => {
+        console.log("profile updated ");
+      })
+      }
+ 
+    
     
    }
 

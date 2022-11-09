@@ -1,12 +1,15 @@
 <ion-content>
+
+  <ion-toggle [(ngModel)]="category" (ionChange)="setCategory()"></ion-toggle>
+
   <form [formGroup]="userEditionForm">
     <ion-card class="bio">
       <ion-card-header>
-        <ion-card-subtitle *ngIf="!user?.isCompany">
+        <ion-card-subtitle *ngIf="category">
           Tell programmers a little about yourself
         </ion-card-subtitle>
 
-        <ion-card-subtitle *ngIf="user?.isCompany">
+        <ion-card-subtitle *ngIf="!category">
           Tell companies a little about yourself
         </ion-card-subtitle>
       </ion-card-header>
@@ -21,7 +24,7 @@
       </ion-card-content>
     </ion-card>
 
-    <ion-card class="tecno-area {{!user?.isCompany ? ' company' : ''}}">
+    <ion-card class="tecno-area {{category ? ' company' : ''}}">
       <ion-badge
         *ngIf="tecnologies?.length"
         color="primary"
@@ -55,8 +58,8 @@
     </ion-card>
 
     <ion-card
-      *ngIf="!user?.isCompany"
-      class="benefits-area {{!user?.isCompany ? ' company' : ''}}"
+      *ngIf="category"
+      class="benefits-area {{category ? ' company' : ''}}"
       style="overflow: visible;"
     >
       <ion-badge
@@ -115,7 +118,7 @@
       </ion-fab-button>
 
       <ion-fab-button
-        *ngIf="!user?.isCompany"
+        *ngIf="category"
         (click)="openBenefitsModal()"
       >
         <ion-label>add benefit</ion-label>

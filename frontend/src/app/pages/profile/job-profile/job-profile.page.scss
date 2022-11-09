@@ -1,4 +1,5 @@
 @import '../../../../assets/commons/styles/profile.scss';
+@import '../../../../assets/commons/styles/settings.scss';
 
 .no-tec{
     font-size: 18px;
@@ -21,3 +22,68 @@ ion-badge {
     margin-top: 30px;
     --border:none;
 }
+
+     
+
+
+ion-toggle[aria-checked="false"]{
+    margin: auto;
+    position: relative;
+    width: calc(80%);
+    height: 45px;
+    --handle-width: 42px;
+    --handle-height: 42px;
+    padding: 0;
+    margin-bottom: 2em;
+
+  
+   &::part(track){
+    border-radius: 25px;
+    background-image: linear-gradient(to bottom, $duck_pastel 0%, $duck_white 100%);
+
+    &::before {
+        position: absolute;
+        content: "Programador";
+        width: 100%;
+        text-align: center;
+        font-size: 15px;
+        line-height: 45px;
+        color: $duck_black;
+        font-weight: bold;
+      }
+   }
+   
+
+  }
+
+  ion-toggle[aria-checked="true"]{
+    
+    position: relative;
+    width: calc(80%);
+    height: 45px;
+    --handle-width: 42px;
+    --handle-height: 42px;
+    padding: 0;
+    margin-bottom: 2em;
+    &::part(handle){
+        background: $duck_white;
+       } 
+
+    &::part(track){
+        border-radius: 25px;
+         background-image: linear-gradient(to top, $duck_pastel 0%, $duck_white 100%);
+
+        &::before {
+        position: absolute;
+        content: "Empresa";
+        width: 100%;
+        text-align: center;
+        font-size: 15px;
+        line-height: 45px;
+        color: $duck_black;
+        font-weight: bold;
+           }
+       }
+
+ 
+ }  

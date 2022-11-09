@@ -25,6 +25,7 @@ export class JobProfilePage implements OnInit {
   public benefits:string[];
   public isNew:boolean = false;
   public bio = '';
+  public category:boolean = false;
 
   constructor(
     public formBuilder: FormBuilder,
@@ -197,5 +198,9 @@ export class JobProfilePage implements OnInit {
     });
 
     await toast.present();
+  }
+
+  setCategory(){
+console.log("category: ", this.category)
   }
 }
