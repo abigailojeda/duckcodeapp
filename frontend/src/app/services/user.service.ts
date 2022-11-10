@@ -64,4 +64,9 @@ export class UserService {
   setCurrentId(id: number) {
     localStorage.setItem('currentId', id.toString())
   }
+
+  deleteUserByID( id) {
+    console.log('a borrar: ' , id)
+    return this.httpClient.delete(`${this.AUTH_SERVER_ADDRESS}/api/users/${id}`);
+  }
 }

@@ -5,6 +5,11 @@ import { UserService } from '../../../services/user.service';
 import { ProfileService } from '../../../services/profile.service';
 import { Storage } from '@ionic/storage';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ToastController } from '@ionic/angular';
+import { ActionSheetController } from '@ionic/angular';
+import { AuthService } from '../../../auth/auth.service';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-personal-data',
@@ -30,7 +35,12 @@ export class PersonalDataPage implements OnInit {
     public formBuilder: FormBuilder,
     private storage: Storage,
     private ProfileService : ProfileService,
-    public sanitizer: DomSanitizer
+    public sanitizer: DomSanitizer,
+    private toastCtrl: ToastController,
+    private actionSheetController : ActionSheetController,
+    private AuthService :AuthService,
+    private router: Router,
+    private  httpClient:  HttpClient
     
   ) { }
 
@@ -141,19 +151,84 @@ export class PersonalDataPage implements OnInit {
       //create new profile
       if(this.isNew){
       this.ProfileService.createProfile(token, this.userId,this.userEditionForm.value, blob).subscribe(data => {
-        console.log("profile created");
+        //console.log("profile created");
         this.isNew = false;
+        this.presentToast('Data have been saved')
       })
       }
       //update profile
       else{
+        console.log(this.profileId)
       this.ProfileService.updateProfileById(token, this.userId,this.profileId,this.userEditionForm.value, blob).subscribe(data => {
-        console.log("profile updated ");
+       // console.log("profile updated ");
+       this.presentToast('Data have been saved')
       })
       }
- 
-    
-    
+
    }
+
+    //confirm data saved
+  
+  async presentToast( message:string) {
+    const toast = await this.toastCtrl.create({
+      message,
+      duration: 2000,
+      position:  'bottom'
+    });
+
+    await toast.present();
+  }
+
+  //prevent delete user
+  async presentActionSheet() {
+    const actionSheet = await this.actionSheetController.create({
+      header: 'Wait a moment!',
+      subHeader: 'Are you sure you want to delete your personal profile?',
+      backdropDismiss:false,
+      buttons: [
+        {
+          text: 'Delete Account',
+          role: 'destructive',
+          icon:'trash',
+          data: {
+            action: 'delete',
+          },
+          handler: () =>{
+            this.confirmRemoveUser();
+          }
+        },
+       
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          icon:'close',
+          data: {
+            action: 'cancel',
+          },
+        },
+      ],
+    });
+
+    await actionSheet.present();
+  }
+
+  async removeUser(){
+   
+   this.presentActionSheet()
+   
+  }
+
+  async confirmRemoveUser(){
+
+  
+    this.UserService.deleteUserByID(this.userId).subscribe(() => {
+      this.AuthService.logout();
+      this.router.navigateByUrl("/login");
+    });
+    
+   
+   
+  }
+
 
 }

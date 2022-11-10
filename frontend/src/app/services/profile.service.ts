@@ -63,4 +63,11 @@ export class ProfileService {
 
     return this.httpClient.put(`${this.AUTH_SERVER_ADDRESS}/api/profiles/${id}`,formData,myOptions);
   }
+
+
+  deleteProfileByID(token, id) {
+    let myOptions = this.getOptions(token);
+    console.log('a borrar: ' , id)
+    return this.httpClient.delete(`${this.AUTH_SERVER_ADDRESS}/api/profiles/${id}`, myOptions);
+  }
 }
