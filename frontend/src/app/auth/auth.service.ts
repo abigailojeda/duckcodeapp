@@ -64,6 +64,8 @@ export class AuthService {
   async logout() {
     await this.storage.remove("token");
      localStorage.removeItem('currentUser');
+     localStorage.removeItem('currentId');
+     localStorage.removeItem('currentUserName');
     this.UserService.setCurrentUser({})
   }
 

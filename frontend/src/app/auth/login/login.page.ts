@@ -24,7 +24,6 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.showPass=false;
-    localStorage.setItem('visibleOn', 'auth')
     this.hideMenu()
   }
 

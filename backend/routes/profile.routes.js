@@ -9,7 +9,7 @@ module.exports = app => {
     router.post("/",upload.single('file'),auth.isAuthenticated, profiles.create);
 
     // Retrieve all profiles
-    router.get("/", profiles.findAll);
+    router.get("/", profiles.findAll, auth.isAuthenticated);
 
     // Retrieve a single profiles with id
     router.get("/:id", auth.isAuthenticated, profiles.findOne);
@@ -21,7 +21,7 @@ module.exports = app => {
     router.put("/:id",upload.single('file'), auth.isAuthenticated, profiles.update);
 
     // Delete a profiles with id
-    router.delete("/:id", auth.isAuthenticated, profiles.delete);
+    router.delete("/:id", profiles.delete);
 
     app.use('/api/profiles', router);
 };

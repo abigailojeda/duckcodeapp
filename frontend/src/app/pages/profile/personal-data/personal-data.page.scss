@@ -39,3 +39,17 @@ ion-fab, ion-fab-button{
         padding: 0;
     }
 }
+
+.remove-cont{
+    margin-top: -3em;
+    .remove{
+        color: #F37E64;
+        font-weight: bolder;
+        text-align: center;
+        width: 80%;
+        margin: 0 auto;
+        cursor: pointer;
+    }
+
+}
+

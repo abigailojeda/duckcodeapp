@@ -25,7 +25,8 @@ export class JobProfilePage implements OnInit {
   public benefits:string[];
   public isNew:boolean = false;
   public bio = '';
-  public category:boolean = false;
+  public isCompany:boolean = false;
+  public profesionalId: number;
 
   constructor(
     public formBuilder: FormBuilder,
@@ -75,6 +76,13 @@ export class JobProfilePage implements OnInit {
 
       //fill tecnologies array
       this.benefits = data[0].benefits.split('/')
+
+      //set profile id:
+      this.profesionalId = data[0]['id'];
+
+      //set if is company:
+      this.isCompany = data[0]['isCompany'];
+      
      }else{
       
       this.isNew = true;
@@ -85,12 +93,7 @@ export class JobProfilePage implements OnInit {
       console.log(this.isNew)
      }
     });
-    // this.UserService.getUserById(id).subscribe((data) => {
-    //   this.user = data;
-    //   this.userEditionForm.setValue({
-    //     name: data['username'],
-    //   });
-    // });
+ 
   }
 
   async openTecnoModal(){
@@ -166,29 +169,46 @@ export class JobProfilePage implements OnInit {
     let benefitsString = '';
     tecnologiesString = this.tecnologies.join('/');
     benefitsString = this.benefits.join('/');
-    console.log(tecnologiesString,' | ' , benefitsString)
-    console.log(this.userEditionForm.value)
+    // console.log(tecnologiesString,' | ' , benefitsString)
+    // console.log(this.userEditionForm.value)
 
     let profesionalUser ={
       bio:this.userEditionForm.value.bio,
       category:"neutra",
       tecnologies:tecnologiesString,
       benefits: benefitsString,
-      isCompany:false,
+      isCompany:this.isCompany,
+      userId: this.userId 
     }
 
     let token = await this.storage.get("token");
     console.log(profesionalUser )
     console.log(token )
-    this.ProfesionalService.updateProfesionalById(token, this.user.id, profesionalUser).subscribe(
-      () => {
-        //console.log(':)')
-        this.presentToast('data have been saved')
-      }
-    );
+
+    //create a new job profile
+    if(this.isNew){
+      this.ProfesionalService.createProfesional(token, profesionalUser).subscribe(
+        () => {
+          this.isNew = false;
+          //console.log(':)')
+          this.presentToast('Data have been saved')
+        }
+      );
+    }
+    //update a new job profile
+    else{
+      console.log(this.profesionalId)
+      this.ProfesionalService.updateProfesionalById(token, this.profesionalId, profesionalUser).subscribe(
+        () => {
+          //console.log(':)')
+          this.presentToast('Data have been saved')
+        }
+      );
+    }
+   
   }
 
-  //confirm user profile update
+  //confirm data saved
   
   async presentToast( message:string) {
     const toast = await this.toastCtrl.create({
@@ -201,6 +221,6 @@ export class JobProfilePage implements OnInit {
   }
 
   setCategory(){
-console.log("category: ", this.category)
+  console.log("is company: ", this.isCompany)
   }
 }

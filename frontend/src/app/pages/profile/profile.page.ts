@@ -14,13 +14,11 @@ export class ProfilePage implements OnInit {
   ) { }
 
   ngOnInit() {
-    localStorage.setItem('visibleOn', 'profile')
     this.showMenu()
 
   }
 
   ionViewDidEnter(){
-    localStorage.setItem('visibleOn', 'profile')
   }
   public showMenu(){
     this.menu.enable(true);

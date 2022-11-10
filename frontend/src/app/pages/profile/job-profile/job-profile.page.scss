@@ -7,7 +7,9 @@
     color: #6e6d74
 }
 
-
+ion-item, ion-list{
+    --ion-item-background: transparent;
+}
 
 ion-badge {
     position: absolute;
@@ -27,19 +29,19 @@ ion-badge {
 
 
 ion-toggle[aria-checked="false"]{
-    margin: auto;
+    margin: 2em auto;
     position: relative;
-    width: calc(80%);
+    width: calc(90%);
     height: 45px;
     --handle-width: 42px;
     --handle-height: 42px;
     padding: 0;
-    margin-bottom: 2em;
+   
 
   
    &::part(track){
     border-radius: 25px;
-    background-image: linear-gradient(to bottom, $duck_pastel 0%, $duck_white 100%);
+    background-image: linear-gradient(to top, $duck_pastel 0%, $duck_white 100%);
 
     &::before {
         position: absolute;
@@ -57,14 +59,13 @@ ion-toggle[aria-checked="false"]{
   }
 
   ion-toggle[aria-checked="true"]{
-    
+    margin: 2em auto;
     position: relative;
-    width: calc(80%);
+    width: calc(90%);
     height: 45px;
     --handle-width: 42px;
     --handle-height: 42px;
     padding: 0;
-    margin-bottom: 2em;
     &::part(handle){
         background: $duck_white;
        } 

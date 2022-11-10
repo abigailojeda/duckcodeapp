@@ -117,61 +117,31 @@ exports.update = (req, res) => {
     });
 };
 
-// // Delete a User with the specified id in the request
-// exports.delete = (req, res) => {
-//   const id = req.params.id;
+// Delete a User with the specified id in the request
+exports.delete = (req, res) => {
+  const id = req.params.id;
 
-//   User.destroy({
-//     where: { id: id }
-//   })
-//     .then(num => {
-//       if (num == 1) {
-//         res.send({
-//           message: "User was deleted successfully!"
-//         });
-//       } else {
-//         res.send({
-//           message: `Cannot delete User with id=${id}. Maybe User was not found!`
-//         });
-//       }
-//     })
-//     .catch(err => {
-//       res.status(500).send({
-//         message: "Could not delete User with id=" + id
-//       });
-//     });
-// };
+  User.destroy({
+    where: { id: id }
+  })
+    .then(num => {
+      if (num == 1) {
+        res.send({
+          message: "User was deleted successfully!"
+        });
+      } else {
+        res.send({
+          message: `Cannot delete User with id=${id}. Maybe User was not found!`
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Could not delete User with id=" + id
+      });
+    });
+};
 
-// // Delete all Users from the database.
-// exports.deleteAll = (req, res) => {
-//   User.destroy({
-//     where: {},
-//     truncate: false
-//   })
-//     .then(nums => {
-//       res.send({ message: `${nums} Tutorials were deleted successfully!` });
-//     })
-//     .catch(err => {
-//       res.status(500).send({
-//         message:
-//           err.message || "Some error occurred while removing all tutorials."
-//       });
-//     });
-// };
-
-// // Find all published Tutorials
-// exports.findAllPublished = (req, res) => {
-//   User.findAll({ where: { published: true } })
-//     .then(data => {
-//       res.send(data);
-//     })
-//     .catch(err => {
-//       res.status(500).send({
-//         message:
-//           err.message || "Some error occurred while retrieving tutorials."
-//       });
-//     });
-// };
 
 // Find user by username and password
 exports.findUserByUsernameAndPassword = (req, res) => {

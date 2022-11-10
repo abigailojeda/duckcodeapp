@@ -21,7 +21,6 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
     this.showPass=false;
     this.showPassControl=false;
-    localStorage.setItem('visibleOn', 'auth')
     this.hideMenu()
   }
   register(form) {

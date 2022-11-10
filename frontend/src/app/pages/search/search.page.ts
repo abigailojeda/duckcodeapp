@@ -7,6 +7,7 @@ import { UserService } from '../../services/user.service';
 import { ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { MenuController } from '@ionic/angular';
+import { ProfileService } from '../../services/profile.service';
 
 @Component({
   selector: 'app-search',
@@ -17,8 +18,14 @@ export class SearchPage implements OnInit {
   @ViewChild(IonSlides) slides: IonSlides;
   public userStorage: any;
   public results:any = [];
-  public users:any =[];
+  
   menuType: string = 'overlay';
+
+  public users:any =[];
+  public userItem = {
+    personal : {},
+    job : {}
+  }
 
   
   constructor(private authService: AuthService,
@@ -26,24 +33,31 @@ export class SearchPage implements OnInit {
     private motorbikeService: MotorbikeService,
     private storage: Storage,
     private UserService: UserService,
-    private menu: MenuController) { }
+    private menu: MenuController,
+    private ProfileService : ProfileService
+    
+    ) { }
 
     ngOnInit() {
       this.getAllUsers();
       this.userStorage = this.UserService.userStorage;
-      localStorage.setItem('visibleOn', 'search')
       this.showMenu()
     }
   
     ionViewDidEnter(){
       this.getAllUsers();
-      localStorage.setItem('visibleOn', 'search')
     }
   async getAllUsers() {
+
+   let personal;
+   let job;
+
+
+
     let token = await this.storage.get("token");
-    this.UserService.getUsers(token).subscribe(res => {
-      // console.log("User Logged in. This is the motorbike list:");
-      // console.log(res);
+    this.ProfileService.getProfiles(token).subscribe(res => {
+      console.log("User Logged in. This is the motorbike list:");
+       console.log(res);
       if(res){
         this.setUsers(res);
       }
@@ -64,8 +78,9 @@ export class SearchPage implements OnInit {
 
   
   handleChange(event) {
-    const query = event.target.value.toLowerCase();
-    this.results = this.users.filter(d => d.toLowerCase().indexOf(query) > -1);
+    console.log('guay')
+    // const query = event.target.value.toLowerCase();
+    // this.results = this.users.filter(d => d.toLowerCase().indexOf(query) > -1);
   }
 
   goToSlide() {

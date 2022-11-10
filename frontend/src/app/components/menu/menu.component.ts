@@ -15,6 +15,9 @@ export class MenuComponent implements OnInit {
   public menuOptions:any;
   public visible:String = 'search';
   menuType: string = 'overlay';
+  public userName:string;
+
+
   constructor(
     private router: Router,
     private UserService: UserService,
@@ -23,7 +26,11 @@ export class MenuComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+  
+
     this.userStorage = this.UserService.userStorage;
+    this.getUserName();
+
     this.menuOptions = [
       {
         icon:'search-outline',
@@ -36,14 +43,18 @@ export class MenuComponent implements OnInit {
         path:'/profile/personal',
       },
     ]
+
+    
+  }
+
+  ionViewDidEnter(){
+    this.getUserName();
   }
 
 
   getUserName(){
-    let username;
-    username=this.userStorage.currentUser;
-    //console.log('username:',username)
-    return username;
+    this.userName=this.userStorage.currentUser;
+    
   }
 
   logout() {

@@ -116,6 +116,7 @@ exports.update = (req, res) => {
 
 // Delete a Profile with the specified id in the request
 exports.delete = (req, res) => {
+    console.log('bueeeno')
     const id = req.params.id;
 
     Profile.destroy({
