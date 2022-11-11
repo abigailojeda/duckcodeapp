@@ -19,10 +19,7 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./auth/register/register.module').then( m => m.RegisterPageModule)
   },
-  {
-    path: 'you-are-logged-in',
-    loadChildren: () => import('./you-are-logged-in/you-are-logged-in.module').then( m => m.YouAreLoggedInPageModule)
-  },
+
   {
     path: 'search',
     loadChildren: () => import('./pages/search/search.module').then( m => m.SearchPageModule)

@@ -71,7 +71,6 @@ app.use(function (req, res, next) {
 });
 
 require("./routes/user.routes")(app);
-require("./routes/motorbike.routes")(app);
 require("./routes/profile.routes")(app);
 require("./routes/profesional.routes")(app);
 
