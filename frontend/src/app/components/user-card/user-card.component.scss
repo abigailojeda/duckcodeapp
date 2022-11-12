@@ -1,0 +1,51 @@
+ion-avatar{
+    width: 80px;
+    height: 80px;
+
+    img{
+        width: 80px;
+        height: 80px;
+    }
+}
+ion-badge{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.item-result-cont{
+    border-radius: 25px;
+    padding: 1em 0.5em;
+    width: 290px;
+}
+
+.chip-cont{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tecnologie{
+    background-color: rgba(185, 147, 240, 0.47);
+}
+.benefit, ion-badge{
+    background-color: rgba(118, 126, 245, 0.47);
+}
+
+.btn.save{
+    align-self: flex-end;
+    --background: #47ca68;
+    --background-hover: #47ca68;
+    --background-activated: #47ca68;
+    --background-focused: #47ca68;
+    width: 95%;
+    height: 45px;
+    margin: 10px auto 70px auto;
+    --border-radius:25px;
+}
+
+ion-fab-button{
+    --background: #47ca68;
+    --background-hover: #47ca68;
+    --background-activated: #47ca68;
+    --background-focused: #47ca68;
+  
+  }

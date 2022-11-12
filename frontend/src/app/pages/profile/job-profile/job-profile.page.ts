@@ -76,6 +76,7 @@ export class JobProfilePage implements OnInit {
 
       //fill tecnologies array
       this.benefits = data[0].benefits.split('/')
+      console.log('benefits: ', this.benefits)
 
       //set profile id:
       this.profesionalId = data[0]['id'];

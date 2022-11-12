@@ -41,12 +41,15 @@ export class SearchPage implements OnInit {
       this.getAllUsers();
       this.userStorage = this.UserService.userStorage;
       this.showMenu()
+      this.users=[]
     }
   
     ionViewDidEnter(){
       this.getAllUsers();
+      this.users=[]
+      
     }
-  async getAllUsers() {
+    async getAllUsers() {
 
   //  let personal;
   //  let job;
@@ -84,37 +87,43 @@ export class SearchPage implements OnInit {
   }
 
   setUsers(){
-
-    for(let i = 0; i< this.profiles.length; i++){
-
+    this.users=[]
+    let quantity;
+    if(this.profiles.length > this.profesionals.length || this.profiles.length == this.profesionals.length){
+      
+      quantity = this.profiles.length
+    
+    }else{
+      quantity = this.profesionals.length
+      //to do: discard user that dont have both profesional & personal profile
     }
 
-    console.log('llega a users: ',this.profiles, ' / ', this.profesionals)
+    for(let i = 0; i< quantity; i++){
+      let user = {
+        profesional : {},
+        personal : {}
+      }
 
-
-
-
-  //   let userItem = {
-  //     personal : {},
-  //     job : {}
-  //   }
-  //   res.map((item , index) =>{
-  //     // this.users[index] = item;
-  //     //console.log(item)
-
-  //     userItem.personal = item;
-  //     this.users.push(userItem);
-  //   })
-
-  //   console.log('los usuarios son: ',this.users)
-  //  this.results =  this.users
+      if(this.profesionals[i].userId == this.profiles[i].userId){
+        user['profesional'] = this.profesionals[i];
+        user['personal'] = this.profiles[i];
+        console.log('user: ' , user)
+        this.users.push(user)
+       
+      }
+      //console.log('uyy', quantity)
+    }
+   
+    //console.log('users: ', this.users)
   }
 
   
   handleChange(event) {
-    console.log('guay')
-    // const query = event.target.value.toLowerCase();
-    // this.results = this.users.filter(d => d.toLowerCase().indexOf(query) > -1);
+    this.setUsers()
+    //console.log('guay')
+    const query = event.target.value.toLowerCase();
+    this.results = this.users.filter(d => d.profesional.tecnologies.split('/').includes(query));
+
   }
 
   goToSlide() {

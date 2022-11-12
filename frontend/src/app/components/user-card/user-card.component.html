@@ -1,8 +1,67 @@
-<ion-avatar slot="start">
-  <img
-    alt="Silhouette of a person's head"
-    src="/assets/img/users/no-photo.png"
-  >
+ 
+  <ion-badge
+      >{{index + 1}} / {{total}}
+    </ion-badge>
 
-  <h1>{{result.username}}</h1>
-</ion-avatar>
+  
+  <ion-list class="item-result-cont">
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <img 
+          *ngIf="result?.personal?.filename"
+          src="http://localhost:4000/images/{{this.result.personal.filename}}"
+        >
+        <img 
+          class="photo-frame"
+          *ngIf="!result?.personal?.filename"
+          src="assets/img/users/default.jpg"
+        >
+      </ion-avatar>
+      <ion-label><h1>{{result?.personal?.name}}</h1></ion-label>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>
+        <p>{{result?.personal?.city}}</p>
+      </ion-label>
+    </ion-item>
+   
+ 
+    <ion-item>
+      <ion-label>
+        <h3>Tools: </h3>
+        <div class="chip-cont">
+          <ion-chip class="tecnologie" *ngFor="let tec of result?.profesional?.tecnologies.split('/')">
+            {{tec}}
+          </ion-chip>
+        </div>
+      </ion-label>
+    </ion-item>
+  
+    <ion-item *ngIf="result?.profesional?.isCompany">
+      <ion-label>
+        <h3>Company benefits: </h3>
+        <div class="chip-cont">
+        <ion-chip class="benefit" *ngFor="let benefit of result?.profesional?.benefits.split('/')">
+          {{benefit}}
+        </ion-chip>
+        </div>
+      </ion-label>
+    </ion-item>
+  
+  
+    
+  </ion-list>
+    
+
+  <ion-fab
+  slot="fixed"
+  vertical="bottom"
+  horizontal="end"
+>
+  <ion-fab-button (click)="openContactModal(result)">
+    <ion-icon name="heart-outline"></ion-icon>
+  </ion-fab-button>
+
+</ion-fab>
+

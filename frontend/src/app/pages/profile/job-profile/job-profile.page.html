@@ -80,7 +80,8 @@
         </ng-container>
 
         <ng-container *ngIf="benefits?.length">
-          <ion-chip *ngFor="let benefit of benefits">
+          <ng-container *ngFor="let benefit of benefits" >
+          <ion-chip *ngIf="benefit != ''" >
             <ion-label>{{benefit}}</ion-label>
 
             <ion-icon
@@ -89,6 +90,7 @@
               (click)="presentAlert(benefit, 'benefits')"
             ></ion-icon>
           </ion-chip>
+        </ng-container>
         </ng-container>
       </ion-card-content>
     </ion-card>

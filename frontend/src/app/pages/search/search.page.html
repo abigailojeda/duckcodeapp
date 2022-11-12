@@ -21,9 +21,10 @@
   </ion-header>
 
   <ion-content class="body-content">
-    <ion-slides pager="true">
+    <p class="search-message" *ngIf="results.length == 0">Insert the technology you are looking for your duckCoder</p>
+    <ion-slides pager="false">
       <ion-slide *ngFor="let slide of results; let i = index">
-       <app-user-card [result]="slide"></app-user-card>
+       <app-user-card [result]="slide" [index] = "i" [total] = 'results.length'></app-user-card>
       </ion-slide>
     </ion-slides>
   </ion-content>

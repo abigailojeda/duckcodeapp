@@ -31,9 +31,13 @@ export class RegisterPage implements OnInit {
       name: form.value.name,
       isAdmin: false
     };
+
+    //create new user on user model
     this.authService.register(user).subscribe((res) => {
       this.router.navigateByUrl('home');
     });
+
+
   }
 
   public tooglePass(){
