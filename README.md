@@ -73,7 +73,7 @@ DB_HOST= yourHost
 NODE_ENV=development
 ```
 
-You also need to create a the "db_duck_network" local database
+You also need to create the "db_duck_network" local database
 
 
 ### frontend
