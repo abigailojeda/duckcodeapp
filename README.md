@@ -86,6 +86,7 @@ In the frontend folder( cd frontend),  install the dependencies:
 ### ➜ Duckcoders search engine  
 ![](screenshots/get.png)
 ### ➜ Profile editing  
+
 ![](screenshots/tabs.png)
 
 
