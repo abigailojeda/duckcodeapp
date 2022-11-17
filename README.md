@@ -55,7 +55,7 @@ To get the token, you only need to:
 
 ### backend
 In the backend folder( cd backend),  install the dependencies:
-npm install
+➜ npm install
 
 IMPORTANT:
 
@@ -78,16 +78,14 @@ You also need to create a the "db_duck_network" local database
 
 ### frontend
 In the frontend folder( cd frontend),  install the dependencies:
-npm install
+➜ npm install
 
 
 ## 🔎 what will you find in DuckCode app?  
 
-###  Duckcoders search engine  
-
+### ➜ Duckcoders search engine  
 ![](screenshots/get.png)
-###  Profile editing  
-
+### ➜ Profile editing  
 ![](screenshots/tabs.png)
 
 
