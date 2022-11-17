@@ -1,11 +1,10 @@
 # 👩‍💻 DuckCode App 🦆
 
-mobile app to find the programmer you need.  The name is inspired by the rubberducking
-[RubberDucking](https://en.wikipedia.org/wiki/Rubber_duck_debugging)
+mobile app to find the programmer you need.  The name is inspired by the rubberducking  
+➜ [RubberDucking](https://en.wikipedia.org/wiki/Rubber_duck_debugging)
 
----
 
-![screenshots](https://github.com/abigailojeda/duckcodeapp.git/blob/main/screenshots/login.png)
+![](screenshots/login.png)
 
 
 ---
