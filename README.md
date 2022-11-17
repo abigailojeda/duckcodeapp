@@ -29,7 +29,7 @@ With the "." at the end you specify that you want the project to be cloned into 
 
 ---
 ### 📚  This project also use:
-This project also use:  
+ 
 ➜ [Express](https://expressjs.com/es/4x/api.html)  
 ➜ [Multer](https://www.npmjs.com/package/multer)  
 ➜[jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
