@@ -24,7 +24,7 @@ With the "." at the end you specify that you want the project to be cloned into 
 
 ## 📂  What do you need to have installed on your computer?
 
-➜ Node [LTS Version](https://nodejs.org/en/)
+➜ Node [LTS Version](https://nodejs.org/en/)  
 ➜ Ionic: npm install -g @ionic/cli
 
 ---
