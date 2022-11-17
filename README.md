@@ -28,7 +28,7 @@ With the "." at the end you specify that you want the project to be cloned into 
 ➜ Ionic: npm install -g @ionic/cli
 
 ---
-### 📚  What do you need to have installed on your computer?
+### 📚  This project also use:
 This project also use:  
 ➜ [Express](https://expressjs.com/es/4x/api.html)  
 ➜ [Multer](https://www.npmjs.com/package/multer)  
