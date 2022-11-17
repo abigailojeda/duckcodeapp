@@ -196,7 +196,7 @@ export class JobProfilePage implements OnInit {
         }
       );
     }
-    //update a new job profile
+    //update a job profile
     else{
       console.log(this.profesionalId)
       this.ProfesionalService.updateProfesionalById(token, this.profesionalId, profesionalUser).subscribe(

@@ -1,6 +1,11 @@
 # 👩‍💻 DuckCode App 🦆
 
-mobile app to find the programmer you need.  The name is inspired by the rubberducking  
+DuckCode is a networking mobile app, to easily find professionals in the tech sector.
+The name is an allusion to the "rubber duck debugging method", which consists of describing to a rubber duck the code you have been programming, in order to find a solution that didn't want to appear. Programmers often get stuck on a problem, and when they tell another programmer, or anyone else, they suddenly see the solution clearly.  
+
+I wanted to allude to this method to refer to this app as a place where you can find collaborative problem solvers, programmers.
+
+
 ➜ [RubberDucking](https://en.wikipedia.org/wiki/Rubber_duck_debugging)
 
 
@@ -8,91 +13,86 @@ mobile app to find the programmer you need.  The name is inspired by the rubberd
 
 
 ---
-<!-- ## 💾 Descarga el proyecto -->
 
-<!-- Crea una carpeta para el proyecto y ejecuta:
+## 💾 Download the project
 
-git clone https://github.com/abigailojeda/FullStackIonicExpress.git .
+Create a folder for the project and run
 
-Con el "." del final especificas que quieres que el proyecto se clone dentro de esa carpeta, y no que cree una carpeta nueva para clonarse
+git clone https://github.com/abigailojeda/duckcodeapp.git .
+
+With the "." at the end you specify that you want the project to be cloned into that folder, and not create a new folder to clone itself.
+
+## 📂  What do you need to have installed on your computer?
+
+➜ Node [LTS Version](https://nodejs.org/en/)
+➜ Ionic: npm install -g @ionic/cli
+
+---
+### 📚  What do you need to have installed on your computer?
+This project also use:  
+➜ [Express](https://expressjs.com/es/4x/api.html)  
+➜ [Multer](https://www.npmjs.com/package/multer)  
+➜[jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
+
+---
+
+#### 👨‍🚀 check POSTMAN endpoints 
+
+[Run in Postman](https://documenter.getpostman.com/view/18449118/2s8YmNS3Xf)  
+  
+IMPORTANT:  
+This app use authentification, so you need a token to try this endpoints.  
+To get the token, you only need to:  
+- Run app  
+- Create an user  
+- Login   
+- Check localhost, and there you will find the token  
+
+![](screenshots/postmantoken.png)
 
 
-## 📂 ¿Qué necesitas tener instalado en tu ordenador?
-
-NodeJS, versión LTS  [Enlace a Node](https://nodejs.org/en/)
-
-Ionic: 
-npm install -g @ionic/cli
-
-
-## ⚙️ Configuración del proyecto
+## ⚙️ Project Settings
 
 ### backend
-En la carpeta back( cd back), instala las dependencias:
+In the backend folder( cd backend),  install the dependencies:
 npm install
 
-IMPORTANTE:
-Debes crear una base de datos en local, esta es la configuración:
+IMPORTANT:
+
+You need to create a .env file for configuration:
 ```javascript
-// back/config/db-config.js
-module.exports = {
-  HOST: "localhost",
-  USER: "root",
-  PASSWORD: "",
-  DB: "inspiration_point",
-  dialect: "mysql",
-  pool: {
-    max: 5,
-    min: 0,
-    acquire: 30000,
-    idle: 10000
-  }
-}
+JWT_SECRET=aSecretYouDecideToWrite
+
+MYSQL_DATABASE=db_duck_network
+MYSQL_USER=yourUsername
+MYSQL_PASSWORD=yourPassword 
+MYSQL_ROOT_PASSWORD= yourPassword  
+
+DB_HOST= yourHost
+
+NODE_ENV=development
 ```
 
+You also need to create a the "db_duck_network" local database
 
-En caso de que tu front no se ejecute en el puerto 8100, deberás cambiarlo aquí:
-
-```javascript
-// back/index.js linea 6
- let corsOptions = {
-  origin: 'http://localhost:8100'
-}
-```
-
-#### 👨‍🚀 prueba los endpoints con POSTMAN
-
-[Run in Postman](https://documenter.getpostman.com/view/18449118/2s83zgu52z)
 
 ### frontend
-En la carpeta front( cd front), instala las dependencias:
+In the frontend folder( cd frontend),  install the dependencies:
 npm install
 
-IMPORTANTE:
-En caso de que tu back no se ejecute en el puerto 8080, deberás cambiarlo aquí:
 
-```javascript
-// front/src/app/services/idea.service.ts linea 8
-  endpoint = 'http://localhost:8080/api/idea'
-``` -->
+## 🔎 what will you find in DuckCode app?  
 
+###  Duckcoders search engine  
 
+![](screenshots/get.png)
+###  Profile editing  
 
-<!-- 
-## Wiki 📖
-
-Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](https://github.com/tu/proyecto/wiki) -->
+![](screenshots/tabs.png)
 
 
-<!-- ## Expresiones de Gratitud 🎁
-
-* Comenta a otros sobre este proyecto 📢
-* Invita una cerveza 🍺 o un café ☕ a alguien del equipo. 
-* Da las gracias públicamente 🤓.
-* Dona con cripto a esta dirección: `0xf253fc233333078436d111175e5a76a649890000`
-* etc. -->
-
-
+---
+👨🏻‍🎓 Thanks to Tiburcio Cruz Ravelo, a great teacher.
 
 ---
  🙋🏻‍♀️ [Abigail Ojeda Alonso](https://es.linkedin.com/in/abigail-ojeda)

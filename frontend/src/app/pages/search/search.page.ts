@@ -104,7 +104,7 @@ export class SearchPage implements OnInit {
         personal : {}
       }
 
-      if(this.profesionals[i].userId == this.profiles[i].userId){
+      if(this.profesionals[i].userId == this.profiles[i]?.userId){
         user['profesional'] = this.profesionals[i];
         user['personal'] = this.profiles[i];
         console.log('user: ' , user)
