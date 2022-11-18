@@ -89,6 +89,8 @@ In the frontend folder( cd frontend),  install the dependencies:
 
 ![](screenshots/tabs.png)
 
+---
+🎥 [Video demo](https://youtu.be/yyR1IgQapB8)
 
 ---
 👨🏻‍🎓 Thanks to Tiburcio Cruz Ravelo, a great teacher.
