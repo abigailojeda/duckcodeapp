@@ -24,12 +24,12 @@ With the "." at the end you specify that you want the project to be cloned into 
 
 ## 📂  What do you need to have installed on your computer?
 
-➜ Node [LTS Version](https://nodejs.org/en/)
+➜ Node [LTS Version](https://nodejs.org/en/)  
 ➜ Ionic: npm install -g @ionic/cli
 
 ---
-### 📚  What do you need to have installed on your computer?
-This project also use:  
+### 📚  This project also use:
+ 
 ➜ [Express](https://expressjs.com/es/4x/api.html)  
 ➜ [Multer](https://www.npmjs.com/package/multer)  
 ➜[jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
@@ -55,7 +55,7 @@ To get the token, you only need to:
 
 ### backend
 In the backend folder( cd backend),  install the dependencies:
-npm install
+➜ npm install
 
 IMPORTANT:
 
@@ -73,20 +73,19 @@ DB_HOST= yourHost
 NODE_ENV=development
 ```
 
-You also need to create a the "db_duck_network" local database
+You also need to create the "db_duck_network" local database
 
 
 ### frontend
 In the frontend folder( cd frontend),  install the dependencies:
-npm install
+➜ npm install
 
 
 ## 🔎 what will you find in DuckCode app?  
 
-###  Duckcoders search engine  
-
+### ➜ Duckcoders search engine  
 ![](screenshots/get.png)
-###  Profile editing  
+### ➜ Profile editing  
 
 ![](screenshots/tabs.png)
 
