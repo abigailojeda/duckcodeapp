@@ -13,6 +13,8 @@ I wanted to allude to this method to refer to this app as a place where you can 
 
 
 ---
+[Design in progress un Figma](https://www.figma.com/file/l25OJf4RMmPPivVWGjgHVN/duck%26code?node-id=0%3A1)
+---
 
 ## 💾 Download the project
 
