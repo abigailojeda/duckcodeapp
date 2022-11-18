@@ -74,7 +74,7 @@ export class JobProfilePage implements OnInit {
       //fill tecnologies array
      this.tecnologies = data[0].tecnologies.split('/')
 
-      //fill tecnologies array
+      //fill benefits array
       this.benefits = data[0].benefits.split('/')
       console.log('benefits: ', this.benefits)
 
